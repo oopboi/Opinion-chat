@@ -1,0 +1,181 @@
+/* Main layout: left text, right chatbox */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+}
+
+/* LEFT SIDE — Big text */
+.left-side {
+    width: 45%;
+}
+
+.left-side h2 {
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: black; 
+    text-align: center;
+    margin-top: -10px; /* desktop vertical adjust */
+}
+
+/* RIGHT SIDE — Chatbox */
+.right-side {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #a5d6a7;
+    outline: none;
+    resize: none;
+    background: #f5fff5;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+}
+
+textarea:focus {
+    border-color: rgba(0, 0, 0, 0.8);
+}
+
+/* GREEN BUTTON */
+button {
+    margin-top: 15px;
+    padding: 14px 28px;
+    width: 100%;
+    max-width: 220px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background: #4CAF50;
+    color: white;
+    box-shadow: 0px 4px 12px rgba(76, 175, 80, 0.4);
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    background: #3E8E41;
+    box-shadow: 0px 6px 16px rgba(62, 142, 65, 0.5);
+    transform: translateY(-2px);
+}
+
+/* HIDDEN NAME SECTION */
+.hidden {
+    display: none;
+}
+
+#name-section {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Wrapper to position send button inside input */
+.name-input-wrapper {
+    position: relative;
+    width: 100%;
+}   
+
+#name {
+    width: 90%;
+    padding: 10px 40px 10px 12px; /* space for send button */
+    border-radius: 25px;
+    border: 2px solid #a5d6a7;
+    outline: none;
+    font-size: 15px;
+}
+
+#name:focus {
+    border-color: black;
+}
+
+/* Send button inside input */
+#send-btn {
+    position: absolute;
+    right: 5px;
+    top: 16%;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#send-btn:hover {
+    transform: translateY(-50%) scale(1.2);
+    filter: brightness(1.2);
+    background-color: black;
+    color: white;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .left-side, .right-side {
+        width: 100%;
+        text-align: center;
+    }
+
+    .left-side h2 {
+        font-size: 38px;
+        margin-top: 40px; /* vertical adjust for smaller screens */
+    }
+
+    textarea {
+        height: 186px;
+    }
+
+    /* Name input wrapper fills width */
+    .name-input-wrapper {
+        width: 100%;
+    }
+
+    #name {
+        width: calc(100% - 45px);
+        padding: 10px 40px 10px 12px;
+        box-sizing: border-box;
+    }
+
+    /* Show send button in mobile/tablet and manually position */
+    #send-btn {
+        display: flex;
+        top: 14%; /* adjust manually */
+        right: 24.3px; /* adjust manually */
+        transform: translateY(-50%);
+    }
+}
+
+
+/* DESKTOP - hide send button */
+@media (min-width: 1025px) {
+    #send-btn {
+        display: none;
+    }
+}
